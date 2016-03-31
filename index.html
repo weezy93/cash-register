@@ -8,21 +8,24 @@
 <body ng-controller="cashRegister">
   <nav>
     <ul>
-      <li><button type="button">Pizza - $9.99</button></li>
-      <li><button type="button">Salad - $5.99</button></li>
-      <li><button type="button">Burger - $12.99</button></li>
-      <li><button type="button">Cheeseburger - $12.99</button></li>
+      <li><button type="button" ng-model="food[0]" ng-click="receipt.addItem(food[0], receipt.receiptArray)">Pizza - $9.99</button></li>
+      <li><button type="button" ng-model="food[1]" ng-click="receipt.addItem(food[1], receipt.receiptArray)">Salad - $5.99</button></li>
+      <li><button type="button" ng-model="food[2]" ng-click="receipt.addItem(food[2], receipt.receiptArray)">Burger - $12.99</button></li>
+      <li><button type="button" ng-model="food[3]" ng-click="receipt.addItem(food[3], receipt.receiptArray)">Cheeseburger - $12.99</button></li>
     </ul>
   </nav>
 
   <main>
 
     <section class="receipt">
-
+      <ul ng-repeat="food in receipt.receiptArray">
+        <li>{{ food.name }} X {{ food.count }} = {{ food.price | currency }}</li>
+      </ul>
     </section>
 
     <section class="total">
-
+      <h4>TOTAL: {{ cost.total | currency }}</h4>
+      <h4>TAX: {{ cost.tax | currency }}</h4>
     </section>
 
   </main>
@@ -30,5 +33,6 @@
   <!-- Your code here  -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
+  <script type="text/javascript" src="./app.js"></script>
 </body>
 </html>
