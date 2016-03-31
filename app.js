@@ -21,9 +21,17 @@ app.controller('cashRegister', function ($scope) {
 
   $scope.receipt = {};
   $scope.receipt.receiptArray = [];
+  $scope.cost = {total: 0, tax: 0};
   $scope.receipt.addItem = function(food, array) {
-    array.push({name: food.name, count: food.count+=1, price: (food.price * food.count)});
+    $scope.cost.total += food.price;
+    $scope.cost.tax += (food.price * 0.0725);
+
+    if (array.indexOf(food) !== -1) {
+      food.count++;
+    } else {
+      food.count++;
+      array.push(food);
+    }
     return array;
   };
-  $scope.cost = {total: 0, tax: 0};
 });

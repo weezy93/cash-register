@@ -4,6 +4,10 @@ body {
     color:  rgba(45, 45, 45, .8);
 }
 
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
 nav {
   width: 100%;
 }

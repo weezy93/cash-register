@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
     <link rel="stylesheet" href="./styles/main.css">
 </head>
-<body ng-controller="cashRegister">
+<body ng-controller="cashRegister" ng-cloak>
   <nav>
     <ul>
       <li><button type="button" ng-model="food[0]" ng-click="receipt.addItem(food[0], receipt.receiptArray)">Pizza - $9.99</button></li>
@@ -18,8 +18,8 @@
   <main>
 
     <section class="receipt">
-      <ul ng-repeat="food in receipt.receiptArray">
-        <li>{{ food.name }} X {{ food.count }} = {{ food.price | currency }}</li>
+      <ul>
+        <li ng-repeat="food in receipt.receiptArray">{{ food.name }} X {{ food.count }} = {{ food.price * food.count | currency }}</li>
       </ul>
     </section>
 
@@ -29,8 +29,6 @@
     </section>
 
   </main>
-
-  <!-- Your code here  -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
   <script type="text/javascript" src="./app.js"></script>
