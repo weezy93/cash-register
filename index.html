@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="cashApp">
 <head>
   <title>Angular Cash Register</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
     <link rel="stylesheet" href="./styles/main.css">
 </head>
-<body>
+<body ng-controller="cashRegister">
   <nav>
     <ul>
       <li><button type="button">Pizza - $9.99</button></li>
@@ -18,7 +18,7 @@
   <main>
 
     <section class="receipt">
-      
+
     </section>
 
     <section class="total">
